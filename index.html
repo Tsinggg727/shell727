@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SHELL-727 · 郭洁颖的个人主页</title>
+<meta name="description" content="SHELL-727 —— 郭洁颖的个人主页。福州大学计算机与大数据学院软件工程 2024 级。这里放我的资料、作业和一些零碎记录。" />
+<meta name="theme-color" content="#ECE3D0" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="styles.css?v=180" />
+</head>
+<body>
+
+<!-- 背景层：光带 / 网格 / 网点 / 幽灵编号 -->
+<div class="bg-layer" aria-hidden="true">
+  <div class="bg-beam"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-orbit"></div>
+  <div class="bg-halftone"></div>
+  <div class="bg-halftone-r"></div>
+  <div class="bg-edge-l"></div>
+  <div class="bg-edge-r"></div>
+  <!-- 图案层：三选一（?deco=a|b|c），全为无文字图形 -->
+  <div class="deco deco-spiral" aria-hidden="true">
+    <svg viewBox="0 0 620 620">
+      <path class="spiral-path" d="M 316 310 L 316 311 L 316 312 L 316 313 L 315 314 L 315 315 L 314 316 L 313 317 L 312 317 L 311 318 L 310 318 L 308 318 L 307 318 L 305 318 L 304 317 L 303 317 L 301 316 L 300 314 L 299 313 L 299 311 L 298 309 L 298 307 L 298 305 L 299 303 L 300 301 L 301 300 L 303 298 L 304 296 L 306 295 L 309 294 L 311 294 L 314 294 L 317 294 L 320 295 L 322 296 L 325 298 L 327 300 L 329 303 L 331 306 L 332 309 L 332 313 L 333 316 L 332 320 L 331 324 L 329 328 L 326 331 L 323 334 L 319 337 L 315 339 L 310 341 L 305 341 L 300 341 L 295 340 L 290 338 L 284 335 L 280 332 L 276 327 L 272 322 L 269 316 L 267 309 L 267 302 L 267 295 L 269 288 L 271 280 L 276 273 L 281 267 L 287 261 L 295 257 L 303 253 L 313 251 L 322 250 L 333 251 L 343 253 L 353 258 L 362 263 L 371 271 L 379 280 L 385 291 L 390 303 L 392 316 L 393 330 L 392 344 L 388 358 L 381 372 L 373 385 L 362 397 L 348 407 L 333 415 L 316 421 L 298 425 L 279 425 L 259 422 L 240 416 L 221 407 L 203 394 L 187 378 L 173 360 L 162 338 L 155 314 L 151 289 L 151 262 L 156 235 L 165 208 L 179 182 L 197 158 L 220 136 L 246 118 L 277 103 L 310 93 L 346 89 L 383 90 L 421 98 L 458 112 L 494 132 L 527 159 L 556 191 L 581 229 L 600 272"/>
+    </svg>
+  </div>
+  <div class="deco deco-hatch" aria-hidden="true"></div>
+  <div class="deco deco-cross" aria-hidden="true">
+    <svg>
+      <defs>
+        <pattern id="pCross" width="42" height="42" patternUnits="userSpaceOnUse">
+          <path d="M21 15V27M15 21H27" stroke="rgba(58,44,84,.30)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#pCross)"/>
+    </svg>
+  </div>
+</div>
+
+<!-- 纸张颗粒与暗角 -->
+<!-- 流动光带 -->
+<div class="flow" aria-hidden="true">
+  <div class="aurora"></div>
+  <svg class="flow-lines" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#6A5488" stop-opacity="0"/>
+        <stop offset=".26" stop-color="#6A5488" stop-opacity=".34"/>
+        <stop offset=".58" stop-color="#8B6FA8" stop-opacity=".22"/>
+        <stop offset="1" stop-color="#8B6FA8" stop-opacity="0"/>
+      </linearGradient>
+      <path id="wave" d="M-160 260C110 170 300 360 540 280S820 110 1030 190 1330 380 1600 270" fill="none"/>
+    </defs>
+    <g class="fw" stroke="url(#flowGrad)" fill="none" stroke-width="1.1">
+      <use href="#wave" y="-150" class="fl fl-1"/>
+      <use href="#wave" y="-40"  class="fl fl-2"/>
+      <use href="#wave" y="80"   class="fl fl-3"/>
+      <use href="#wave" y="200"  class="fl fl-4"/>
+      <use href="#wave" y="320"  class="fl fl-5"/>
+      <use href="#wave" y="440"  class="fl fl-6"/>
+    </g>
+    <g fill="#6A5488" opacity=".55">
+      <circle r="2.6"><animateMotion dur="27s" repeatCount="indefinite"><mpath href="#wave"/></animateMotion></circle>
+      <g transform="translate(0,132)"><circle r="2" opacity=".8"><animateMotion dur="35s" begin="-9s" repeatCount="indefinite"><mpath href="#wave"/></animateMotion></circle></g>
+      <g transform="translate(0,300)"><circle r="1.8" fill="#8B6FA8" opacity=".8"><animateMotion dur="31s" begin="-17s" repeatCount="indefinite"><mpath href="#wave"/></animateMotion></circle></g>
+      <g transform="translate(0,-108)"><circle r="1.6" opacity=".6"><animateMotion dur="41s" begin="-24s" repeatCount="indefinite"><mpath href="#wave"/></animateMotion></circle></g>
+    </g>
+    <g stroke="#6A5488" stroke-opacity=".16" fill="none" stroke-width="1">
+      <use href="#wave" y="-95" class="fd fd-1"/>
+      <use href="#wave" y="140" class="fd fd-2"/>
+      <use href="#wave" y="380" class="fd fd-3"/>
+    </g>
+  </svg>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+<canvas class="dust" id="dust" aria-hidden="true"></canvas>
+<canvas class="fireworks" id="fireworks" aria-hidden="true"></canvas>
+
+<!-- 开机帘 -->
+<div class="loader" id="loader">
+  <div class="loader-half loader-top"></div>
+  <div class="loader-half loader-bottom"></div>
+  <div class="loader-core">
+    <p class="loader-eyebrow">UNIT 727 / BOOT SEQUENCE</p>
+    <p class="loader-mark">SHELL<span>—</span>727</p>
+    <div class="loader-line"><i id="loaderBar"></i></div>
+    <div class="loader-foot">
+      <span>欢迎光临</span>
+      <span class="mono" id="loaderPct">00</span>
+    </div>
+  </div>
+</div>
+
+<div class="veil" id="veil" aria-hidden="true"><span>马上回来</span></div>
+
+<!-- 顶部导航 -->
+<header class="topbar" id="topbar">
+  <a class="brand" href="#/home" data-nav="home" aria-label="SHELL-727 主页">
+    <span class="brand-mark">SHELL—727</span>
+    <span class="brand-sub mono">寄居蟹 / 改装中</span>
+  </a>
+
+  <nav class="nav" aria-label="主导航">
+    <a href="#/home"    data-nav="home"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.8v3M12 18.2v3M2.8 12h3M18.2 12h3"/></svg>主页</a>
+    <a href="#/profile" data-nav="profile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h8l5 5v12H6z"/><path d="M14 3.5v5h5"/><path d="M9 13h7M9 16.5h5"/></svg>住户档案</a>
+    <a href="#/wall"    data-nav="wall"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 15.5c3-7 5 2.5 8.5-4.5s5 4 8.5-3"/><path d="M3.5 19.5h17"/></svg>壳内壁涂鸦</a>
+    <a href="#/quiz"    data-nav="quiz"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 12l5.5-4"/><circle cx="12" cy="12" r="1.1"/><path d="M12 3.5v2M20.5 12h-2M12 20.5v-2M3.5 12h2"/></svg>小测试</a>
+  </nav>
+
+  <div class="status">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span class="mono">ONLINE · 12%</span>
+  </div>
+  <button class="burger" id="burger" aria-label="展开导航" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</header>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"><i></i></div>
+
+<main id="stage">
+
+  <!-- ========== 01 主页 ========== -->
+  <section class="view view-home" data-view="home" aria-label="主页">
+    <div class="hero">
+      <!-- 素材纹样层：?pat=a|b|c|d|off（a 贝母云纹 / b 鳞甲 / c 气泡 / d 珊瑚） -->
+      <div class="pat" aria-hidden="true"></div>
+      <div class="pat-waves" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow reveal">
+          <span class="mono">主页 / 01</span>
+          <span class="rule"></span>
+        </p>
+
+        <p class="hero-hello reveal">
+          <span class="hello-big">欢迎光临！</span>
+          <span class="hello-sub">这里是 SHELL—727 的个人网站</span>
+        </p>
+
+        <section class="index-sec hero-index" aria-label="站内索引">
+          <ul class="index-list">
+            <li class="reveal">
+              <a href="#/profile" data-nav="profile">
+                <span class="idx mono">01</span>
+                <span class="idx-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.5h8l5 5v12H6z"/><path d="M14 3.5v5h5"/><path d="M9 13h7M9 16.5h5"/></svg></span>
+                <span class="idx-name">住户档案</span>
+                <span class="idx-lead" aria-hidden="true"></span>
+                <span class="idx-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span>
+              </a>
+            </li>
+            <li class="reveal">
+              <a href="#/wall" data-nav="wall">
+                <span class="idx mono">02</span>
+                <span class="idx-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 15.5c3-7 5 2.5 8.5-4.5s5 4 8.5-3"/><path d="M3.5 19.5h17"/></svg></span>
+                <span class="idx-name">壳内壁涂鸦</span>
+                <span class="idx-lead" aria-hidden="true"></span>
+                <span class="idx-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span>
+              </a>
+            </li>
+            <li class="reveal">
+              <a href="#/quiz" data-nav="quiz">
+                <span class="idx mono">03</span>
+                <span class="idx-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 12l5.5-4"/><circle cx="12" cy="12" r="1.1"/><path d="M12 3.5v2M20.5 12h-2M12 20.5v-2M3.5 12h2"/></svg></span>
+                <span class="idx-name">小测试</span>
+                <span class="idx-lead" aria-hidden="true"></span>
+                <span class="idx-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span>
+              </a>
+            </li>
+            <li class="reveal">
+              <a href="#/panel" aria-haspopup="dialog" aria-controls="panelSheet">
+                <span class="idx mono">04</span>
+                <span class="idx-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h7.5M15.5 7H20M4 12h3M10.5 12H20M4 17h11M18.5 17H20"/><circle cx="13.7" cy="7" r="1.8"/><circle cx="8.7" cy="12" r="1.8"/><circle cx="16.7" cy="17" r="1.8"/></svg></span>
+                <span class="idx-name">控制面板</span>
+                <span class="idx-lead" aria-hidden="true"></span>
+                <span class="idx-go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5"/></svg></span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="stage" id="stage3d">
+        <div class="stage-glow" aria-hidden="true"></div>
+        <div class="stage-dots" aria-hidden="true"></div>
+
+        <svg class="hud-ring" viewBox="0 0 420 420" aria-hidden="true">
+          <circle class="hr-base" cx="210" cy="210" r="205"/>
+          <circle class="hr-ticks" cx="210" cy="210" r="184"/>
+          <g class="hr-rot"><circle class="hr-arc" cx="210" cy="210" r="205"/></g>
+          <g class="hr-rot2"><circle class="hr-arc2" cx="210" cy="210" r="164"/></g>
+        </svg>
+
+        <span class="brk brk-tl" aria-hidden="true"></span>
+        <span class="brk brk-tr" aria-hidden="true"></span>
+        <span class="brk brk-bl" aria-hidden="true"></span>
+        <span class="brk brk-br" aria-hidden="true"></span>
+
+        <span class="mark mark-1" aria-hidden="true"></span>
+        <span class="mark mark-2" aria-hidden="true"></span>
+        <span class="mark mark-3" aria-hidden="true"></span>
+        <span class="mark mark-4" aria-hidden="true"></span>
+
+        <div class="char-wrap" data-parallax="1">
+          <img class="char" src="assets/shell727-cut.webp" alt="SHELL-727：银紫机械壳、圆形护目镜的赛博寄居蟹" />
+        </div>
+
+        <div class="unit-plate">
+          <span class="mono">UNIT</span>
+          <strong>727</strong>
+        </div>
+
+        <div class="barcode" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="tk"><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i></span>
+        <span class="tk"><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i><i class="g g-ring"></i><i class="g g-plus"></i><i class="g g-diamond"></i><i class="g g-dot"></i></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 02 住户档案 ========== -->
+  <section class="view view-profile" data-view="profile" aria-labelledby="profileTitle" hidden>
+    <div class="page">
+      <header class="page-head">
+        <p class="eyebrow reveal"><span class="mono">住户档案 / 01</span><span class="rule"></span></p>
+        <h2 class="page-title reveal" id="profileTitle">住户档案<span class="hand inline-note">2024 级 · 目前大三。</span></h2>
+      </header>
+
+      <div class="profile-grid">
+        <div class="file-card reveal">
+          <div class="file-top">
+            <span class="mono muted">STUDENT NO. 102400301 / 已登记</span>
+            <span class="stamp">内页</span>
+          </div>
+          <dl class="file-rows">
+            <div><dt>姓名</dt><dd>郭洁颖</dd></div>
+            <div><dt>学号</dt><dd class="mono">102400301</dd></div>
+            <div><dt>学校</dt><dd>福州大学 · 计算机与大数据学院</dd></div>
+            <div><dt>专业</dt><dd>软件工程 · 2024 级 · 目前大三</dd></div>
+            <div><dt>生日</dt><dd>7 月 27 日</dd></div>
+            <div><dt>MBTI</dt><dd>INFP</dd></div>
+            <div>
+              <dt>学过的语言</dt>
+              <dd>
+                <span class="skill"><b>C</b><span class="meter"><i data-meter="50"></i></span></span>
+                <span class="skill"><b>C++</b><span class="meter"><i data-meter="50"></i></span></span>
+                <span class="skill"><b>Java</b><span class="meter"><i data-meter="50"></i></span></span>
+                <span class="skill"><b>Web 相关</b><span class="meter"><i data-meter="50"></i></span></span>
+                <span class="hand skill-note">还在进修中。</span>
+              </dd>
+            </div>
+          </dl>
+
+          <p class="file-sign hand">先写到这里。</p>
+        </div>
+
+        <figure class="portrait reveal" data-tilt>
+          <div class="portrait-frame">
+            <img src="assets/shell727-cut.webp" alt="SHELL-727：银紫机械壳、圆形护目镜的赛博寄居蟹" />
+            <span class="portrait-glow" aria-hidden="true"></span>
+          </div>
+          <figcaption>
+            <span class="hand">本站形象担当。</span>
+            <span class="mono muted">MASCOT / 7.27</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <a class="blog-door reveal" href="https://blog.csdn.net/2604_95798884?type=bbs" target="_blank" rel="noopener" aria-label="我的 CSDN 博客，外部链接">
+        <div class="door-left">
+          <p class="mono muted">BLOG / CSDN · 会离开这里</p>
+          <h3>隔壁博客</h3>
+          <p class="door-desc">部分作业和课程记录写在 CSDN。<br />这边只放些零碎的东西。</p>
+        </div>
+        <div class="door-right">
+          <span class="work-open"><span>查看</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8 6h10v10"/></svg></span>
+        </div>
+      </a>
+
+      <a class="blog-door reveal" href="https://github.com/Tsinggg727" target="_blank" rel="noopener" aria-label="我的 GitHub，外部链接">
+        <div class="door-left">
+          <p class="mono muted">GITHUB / 会离开这里</p>
+          <h3>代码仓库</h3>
+          <p class="door-desc">作业和练手写的东西<br />会慢慢放到 GitHub 上。</p>
+        </div>
+        <div class="door-right">
+          <span class="work-open"><span>查看</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8 6h10v10"/></svg></span>
+        </div>
+      </a>
+
+      <section class="works-block">
+        <header class="sec-head reveal">
+          <h2>成果陈列</h2>
+          <p class="mono muted">WORKS / 03 ITEMS</p>
+        </header>
+      <div class="works-list">
+        <article class="work-card reveal" data-tilt>
+          <span class="tape" aria-hidden="true"></span>
+          <div class="work-no mono">01</div>
+          <div class="work-main">
+            <h3>ConfTrends<span class="tag-out mono">个人成果 / 站外</span></h3>
+            <p class="work-note hand">顶会热词统计平台：爬论文、数热词、看趋势。</p>
+            <p class="work-meta mono muted">CVPR / ICCV / ECCV · FLASK + VUE 3</p>
+          </div>
+          <div class="work-open-group">
+            <a class="work-open" href="https://github.com/Tsinggg727/ConfTrends" target="_blank" rel="noopener" aria-label="ConfTrends 代码仓库，外部链接">
+              <span>代码仓库</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8 6h10v10"/></svg>
+            </a>
+            <a class="work-open" href="https://tsinggg.pythonanywhere.com" target="_blank" rel="noopener" aria-label="ConfTrends 在线演示，外部链接">
+              <span>演示</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8 6h10v10"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="work-card reveal" data-tilt>
+          <span class="tape" aria-hidden="true"></span>
+          <div class="work-no mono">02</div>
+          <div class="work-main">
+            <h3>大福食刻<span class="tag-out mono">团队成果 / 站外</span></h3>
+            <p class="work-note hand">面向福大师生的档口级美食点评平台，AI 助手帮你选饭。</p>
+            <p class="work-meta mono muted">TEAM 知食分子 / 软件设计阶段 · 需求与原型文档</p>
+          </div>
+          <a class="work-open" href="https://devcloud.cn-north-4.huaweicloud.com/codehub/project/be7f319c182c4bb586b849e43274f816/codehub/3112926/memberlist" target="_blank" rel="noopener" aria-label="大福食刻 项目仓库，外部链接">
+            <span>代码仓库</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8 6h10v10"/></svg>
+          </a>
+        </article>
+
+        <article class="work-card reveal" data-tilt>
+          <span class="tape" aria-hidden="true"></span>
+          <div class="work-no mono">03</div>
+          <div class="work-main">
+            <h3>CNCC 参会平台<span class="tag-out mono">团队成果 / 在线演示</span></h3>
+            <p class="work-note hand">数聚驱动，智算未来。</p>
+            <p class="work-meta mono muted">TEAM 知食分子 / CNCC 2026 · 已部署</p>
+          </div>
+          <div class="work-open-group">
+            <a class="work-open" href="https://devcloud.cn-north-4.huaweicloud.com/codehub/project/941777e6fed343219ac31bea3ee72293/codehub/3098470/repo" target="_blank" rel="noopener" aria-label="CNCC 参会平台代码仓库，外部链接">
+              <span>代码仓库</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8 6h10v10"/></svg>
+            </a>
+            <a class="work-open" href="https://cncc-system.zviolin.online/" target="_blank" rel="noopener" aria-label="CNCC 参会平台在线演示，外部链接">
+              <span>演示</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8 6h10v10"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <div class="work-empty reveal">
+          <p class="hand">其余项目还在更新中...</p>
+          <p class="mono muted">WORK IN PROGRESS / 未完待续</p>
+        </div>
+      </div>
+      </section>
+
+    </div>
+  </section>
+
+
+  <!-- ========== 02 壳内壁涂鸦 ========== -->
+  <section class="view view-wall" data-view="wall" aria-labelledby="wallTitle" hidden>
+    <div class="page">
+      <header class="page-head">
+        <p class="eyebrow reveal"><span class="mono">壳内壁涂鸦 / 02</span><span class="rule"></span></p>
+        <h2 class="page-title reveal" id="wallTitle">壳内壁涂鸦</h2>
+        <p class="wall-question reveal" id="wallQuestion">说句话再走。</p>
+      </header>
+
+      <div class="write-card reveal">
+        <div class="write-head">
+          <span class="mono muted">NEW NOTE / 贴一张</span>
+          <span class="mono muted" id="noteCount">0 / 80</span>
+        </div>
+        <div class="write-row">
+          <input id="nick" class="field" type="text" maxlength="12" placeholder="留言昵称" autocomplete="off" />
+          <textarea id="note" class="field area" maxlength="80" placeholder="想说什么？"></textarea>
+        </div>
+        <div class="write-foot">
+          <span class="mono muted" id="wallReply">写点什么吧。</span>
+          <button class="btn btn-primary small" id="postNote" type="button"><span>贴上去</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 05 小测试 ========== -->
+  <section class="view view-quiz" data-view="quiz" aria-labelledby="quizTitle" hidden>
+    <div class="page narrow">
+      <header class="page-head center-head">
+        <p class="eyebrow center reveal"><span class="mono">小测试 / 03</span><span class="rule"></span></p>
+        <h2 class="page-title reveal" id="quizTitle">小测试</h2>
+      </header>
+
+      <div class="machine reveal" id="machine">
+        <div class="machine-top">
+          <span class="mono muted">COMPATIBILITY TEST</span>
+          <span class="mono muted" id="quizCounter">00 / 10</span>
+        </div>
+        <div class="paper-strip"><i id="quizProgress"></i></div>
+
+        <!-- 封面 -->
+        <div class="quiz-panel" data-panel="intro">
+          <div class="intro-grid">
+            <div class="intro-left">
+              <h3 class="quiz-h">请完成以下十道题目。</h3>
+              <p class="quiz-sub">请根据实际情况作答。</p>
+              <button class="btn btn-primary" id="quizStart" type="button"><span>开始</span></button>
+              <p class="micro">可随时退出，不作成绩记录。</p>
+            </div>
+            <ul class="intro-stats">
+              <li><span class="mono muted">题量</span><b>10</b></li>
+              <li><span class="mono muted">用时</span><b>约 1 分钟</b></li>
+              <li><span class="mono muted">记录</span><b>不留</b></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 答题 -->
+        <div class="quiz-panel" data-panel="q" hidden>
+          <p class="quiz-num mono" id="quizNum">Q01</p>
+          <h3 class="quiz-h" id="quizQ">问题</h3>
+          <div class="options" id="quizOptions"></div>
+          <p class="quiz-hint hand" id="quizHint"></p>
+        </div>
+
+        <!-- 结果 -->
+        <div class="quiz-panel result-panel" data-panel="result" hidden>
+          <p class="mono muted">COMPATIBILITY REPORT / 今日</p>
+          <div class="result-main">
+            <div class="result-scale">
+              <p class="rs-num"><span id="resultNum">0</span><i>%</i></p>
+              <div class="rs-track" aria-hidden="true"><i id="ringFg"></i></div>
+              <div class="rs-ticks mono" aria-hidden="true">
+                <span>0</span><span>25</span><span>50</span><span>75</span><span>100</span>
+              </div>
+            </div>
+            <div class="result-copy">
+              <h3 id="resultTitle">测试结果</h3>
+              <p class="result-verdict" id="resultVerdict">你走你的，我缩我的。</p>
+              <p class="micro">结果不一定准，当个参考。</p>
+            </div>
+          </div>
+          <div class="result-actions">
+            <button class="btn btn-primary small" id="quizRetry" type="button"><span>再测一次</span></button>
+            <button class="btn btn-ghost small" id="quizShare" type="button"><span>把结果带走</span></button>
+          </div>
+        </div>
+
+        <div class="machine-foot mono">仅记录所选选项，不收集任何个人信息</div>
+      </div>
+    </div>
+
+    <!-- 隐藏结局 -->
+    <div class="ending" id="ending" hidden>
+      <div class="ending-card">
+        <p class="mono muted">HIDDEN ENDING / 727</p>
+        <h3>面板后面的小门</h3>
+        <p class="hand">你找到了面板后面的小门。</p>
+        <p class="ending-sub">里面没什么。就是安静。</p>
+        <button class="btn btn-ghost small" id="endingClose" type="button"><span>回去</span></button>
+      </div>
+    </div>
+  </section>
+
+
+  
+
+  <!-- ========== 404 信号丢失 ========== -->
+  <section class="view view-lost" data-view="lost" aria-labelledby="lostTitle" hidden>
+    <div class="lost-wrap">
+      <div class="lost-signal" aria-hidden="true">
+        <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.4"/></svg>
+        <svg viewBox="0 0 12 12"><path d="M6 1.2v9.6M1.2 6h9.6"/></svg>
+        <svg viewBox="0 0 12 12"><path d="M6 1.4 10.6 6 6 10.6 1.4 6z"/></svg>
+        <svg viewBox="0 0 12 12"><circle cx="6" cy="6" r="1.5" fill="currentColor"/></svg>
+      </div>
+      <p class="eyebrow center reveal"><span class="mono">ERROR / UNIT 727</span></p>
+      <h2 class="lost-num reveal" data-glitch="404">404</h2>
+      <h3 class="lost-title reveal" id="lostTitle">信号丢失</h3>
+      <p class="lost-copy reveal">Surprise！<br /><span class="muted">恭喜你找到了这里。</span></p>
+      <div class="lost-actions reveal">
+        <a class="btn btn-primary" href="#/home" data-nav="home"><span>回主页</span></a>
+        <button class="btn btn-ghost" type="button" id="lostRandom"><span>随便看看</span></button>
+      </div>
+      <p class="micro center reveal">这里没有内容，回主页吧。</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- 控制面板 · 浮层（不再是独立页面） -->
+<div class="panel-sheet" id="panelSheet" hidden>
+  <div class="ps-backdrop" data-close-panel></div>
+  <div class="ps-body" role="dialog" aria-modal="true" aria-labelledby="psTitle" tabindex="-1">
+    <header class="ps-head">
+      <div>
+        <p class="mono muted">SIDE PANEL</p>
+        <h2 id="psTitle">控制面板</h2>
+      </div>
+      <button class="dont-press" id="dontPress" type="button" aria-label="不要点">
+        <span class="dp-top mono" aria-hidden="true">DO NOT<br />PRESS</span>
+        <span class="dp-label"><i>不</i><i>要</i><i>点</i></span>
+      </button>
+    </header>
+    <div class="ps-scroll">
+      <p class="ps-hint mono" id="pressHint">按下去会有声音。没有别的。</p>
+
+      <div class="ps-flash" id="pressNote" hidden>
+        <p class="ps-flash-text" id="pressText">说了不要点。</p>
+        <span class="mono muted" id="pressCount">按下 1 次</span>
+      </div>
+
+      <div class="panel-grid">
+        <div class="side-cards">
+          <div class="shell-card reveal">
+            <div class="card-head"><span class="mono muted">TODAY / 今日状态</span><span class="live-dot"></span></div>
+            <ul class="shell-rows">
+              <li><span>状态</span><b>勉强稳定</b></li>
+              <li><span>电量</span><b>12%<i class="battery"><em></em></i></b></li>
+              <li><span>心情</span><b>还算平静</b></li>
+              <li><span>宜</span><b>躺着</b></li>
+              <li><span>忌</span><b>熬夜</b></li>
+            </ul>
+          </div>
+
+          <div class="fact-card reveal">
+            <div class="card-head"><span class="mono muted">RANDOM / 逗你一笑</span></div>
+            <p class="fact-text" id="factText">绿豆从五楼跳下去，变成了什么？</p>
+            <p class="fact-answer hand" id="factAnswer" hidden>红豆——流了好多血。</p>
+            <div class="fact-actions">
+              <button class="text-btn" id="factReveal" type="button">揭晓答案</button>
+              <button class="text-btn" id="factNext" type="button">换一条 <span aria-hidden="true">↻</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="poses">
+        <header class="sec-head reveal">
+          <h2>姿态记录</h2>
+          <p class="mono muted">POSTURE LOG / 03</p>
+        </header>
+        <div class="pose-grid">
+          <figure class="pose reveal" data-tilt>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 40c0-12 8-20 18-20s18 8 18 20"/><path d="M22 44h20"/><path d="M44 22h4M48 18v8"/><path d="M18 46c4 4 24 4 28 0"/></svg>
+            <figcaption><b>睡觉</b><span class="hand">充会儿电。</span></figcaption>
+          </figure>
+          <figure class="pose reveal" data-tilt>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 18v26"/><path d="M22 24l10-6 10 6"/><path d="M20 44h24"/><circle cx="32" cy="14" r="4"/></svg>
+            <figcaption><b>调试</b><span class="hand">改到一半。</span></figcaption>
+          </figure>
+          <figure class="pose reveal" data-tilt>
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="14"/><path d="M32 12v6M32 46v6M12 32h6M46 32h6"/><path d="M38 30h.01M26 30h.01"/></svg>
+            <figcaption><b>发呆</b><span class="hand">在想事情。</span></figcaption>
+          </figure>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+
+
+<!-- 碎碎念 · 贴底状态条 -->
+<aside class="whisper" id="whisper" aria-label="碎碎念">
+  <div class="whisper-left">
+    <span class="live-dot" aria-hidden="true"></span>
+    <span class="mono">碎碎念</span>
+  </div>
+  <p class="whisper-text" id="whisperText">火柴觉得头有点痒，伸手挠了挠，然后呢？</p>
+  <div class="whisper-right">
+    <span class="mono whisper-yi" id="whisperYi">今日宜：早点睡 &nbsp;/&nbsp; 忌：熬夜</span>
+    <button class="text-btn small" id="whisperReveal" type="button" hidden>揭晓答案</button>
+    <button class="text-btn small" id="whisperNext" type="button">换一句 ↻</button>
+  </div>
+</aside>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="foot-brand">
+      <p class="brand-mark small">SHELL—727</p>
+      <span class="foot-rule" aria-hidden="true"></span>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="mono muted">SHELL-727 © 2026 · 郭洁颖</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js?v=104"></script>
+</body>
+</html>
