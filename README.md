@@ -14,9 +14,10 @@
 │   ├── shell727-cut.webp            # 寄居蟹形象（吉祥物）
 │   ├── favicon.svg
 │   └── patterns/                    # 可选背景纹样（默认关闭，?pat=a 开启）
-├── server.js                        # 可选：留言后端（零依赖 Node，仅自建服务器时使用）
-├── PythonAnywhere部署说明.md        # 可选：子路径静态部署步骤
-└── 后端部署说明.md                  # 可选：华为云自建服务器步骤
+├── shell727_api.py                  # 留言后端（Flask 蓝图，挂 PythonAnywhere 的 web app）
+├── server.js                        # 备选：留言后端（零依赖 Node，自建服务器用）
+├── PythonAnywhere部署说明.md        # 当前部署方案：前端子路径 + 后端接线
+└── 后端部署说明.md                  # 备选：华为云自建服务器步骤
 ```
 
 ## 本地预览
@@ -48,10 +49,12 @@ npx serve .
 
 ## 留言说明
 
-「壳内壁涂鸦」的留言**不公开显示**。纯静态托管（GitHub Pages / PythonAnywhere
-子路径）下留言仅保存在访客自己的浏览器里（localStorage）；要让站主收到留言，
-需运行 `server.js`（见《后端部署说明.md》）并在 `app.js` 顶部把 `MESSAGE_API`
-填上后端地址。
+「壳内壁涂鸦」的留言**不公开显示**。`app.js` 顶部的 `MESSAGE_API` 指向
+PythonAnywhere 上的 Flask 留言接口（`shell727_api.py`，接线步骤见
+《PythonAnywhere部署说明.md》）：访客贴的留言 POST 到
+`tsinggg.pythonanywhere.com/api/message`，只有带密钥访问
+`/api/messages?key=密钥` 才能看到；后端没连通时自动退回访客浏览器本地保存。
+留言上限 500 条，昵称 ≤12 字、正文 ≤80 字，同 IP 每 60 秒最多 3 条。
 
 ## 站点信息速查
 
