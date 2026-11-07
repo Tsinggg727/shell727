@@ -25,8 +25,8 @@
   /* ---------------- data ---------------- */
   /* 留言后端地址：留空 = 只存访客浏览器本地；
      填上服务器地址 = 贴上去时同步发送到服务器，仅自己可见。
-     当前指向 PythonAnywhere 上的 Flask 留言接口（见《PythonAnywhere部署说明.md》） */
-  const MESSAGE_API = 'https://tsinggg.pythonanywhere.com';
+     当前指向 PythonAnywhere 新账号的独立 web app（见《PythonAnywhere部署说明.md》） */
+  const MESSAGE_API = 'https://tsinggg727.pythonanywhere.com';
 
   const VIEW_META = {
     home:    { title: '主页',      doc: 'SHELL-727 · 主页' },
