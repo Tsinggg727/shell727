@@ -42,17 +42,17 @@ npx serve .
   1. 本文件夹即仓库根，`git push` 到 `main` 分支即发布；
   2. 仓库 Settings → Pages → Source 选 `main` 分支 `/ (root)`；
   3. 访问 `https://tsinggg727.github.io/shell727/`。
-- **PythonAnywhere（当前使用）**：挂在既有应用的子路径下，步骤见
-  《PythonAnywhere部署说明.md》。
+- **PythonAnywhere（当前使用）**：独立 web app，
+  `https://tsinggg727.pythonanywhere.com/`，步骤见《PythonAnywhere部署说明.md》。
 - **Vercel / Netlify / Cloudflare Pages**：导入仓库或直接拖拽文件夹上传，零配置。
 - 注意：文件全部使用相对路径，部署在子目录也能正常工作。
 
 ## 留言说明
 
 「壳内壁涂鸦」的留言**不公开显示**。`app.js` 顶部的 `MESSAGE_API` 指向
-PythonAnywhere 上的 Flask 留言接口（`shell727_api.py`，接线步骤见
+PythonAnywhere 上的 Flask 留言接口（`flask_app.py` + `shell727_api.py`，步骤见
 《PythonAnywhere部署说明.md》）：访客贴的留言 POST 到
-`tsinggg.pythonanywhere.com/api/message`，只有带密钥访问
+`tsinggg727.pythonanywhere.com/api/message`，只有带密钥访问
 `/api/messages?key=密钥` 才能看到；后端没连通时自动退回访客浏览器本地保存。
 留言上限 500 条，昵称 ≤12 字、正文 ≤80 字，同 IP 每 60 秒最多 3 条。
 
